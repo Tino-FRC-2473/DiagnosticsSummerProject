@@ -23,11 +23,4 @@ public class RobotMap {
 	public static final int FRONT_RIGHT = 2;
 	public static final int BACK_RIGHT = 3;
 	
-	//0 is false, 1 is true
-	public static int Gyro_Error = 0;
-	public static int Talon_Back_Left_Error = 0;
-	public static int Talon_Back_Right_Error = 0;
-	public static int Talon_Front_Left_Error = 0;
-	public static int Talon_Front_Right_Error = 0;
-	public static int BreakBeam_Error = 0;
 }
