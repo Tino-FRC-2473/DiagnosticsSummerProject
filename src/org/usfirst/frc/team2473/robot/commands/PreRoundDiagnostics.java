@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2473.robot.commands;
 
+import org.usfirst.frc.team2473.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -10,6 +12,7 @@ public class PreRoundDiagnostics extends Command {
     public PreRoundDiagnostics() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -32,5 +35,6 @@ public class PreRoundDiagnostics extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	System.out.println("Diagnostics interrupted?");
     }
 }
