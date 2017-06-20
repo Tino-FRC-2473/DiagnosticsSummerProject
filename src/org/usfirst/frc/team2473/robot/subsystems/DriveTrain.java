@@ -23,12 +23,12 @@ public class DriveTrain extends Subsystem {
     }
     
     public void resetEncoders(){
-    	talonTwo.changeControlMode(TalonControlMode.Position);
     	talonOne.changeControlMode(TalonControlMode.Position);
-    	talonTwo.setPosition(0);
+    	talonTwo.changeControlMode(TalonControlMode.Position);
     	talonOne.setPosition(0);
-    	talonTwo.changeControlMode(TalonControlMode.PercentVbus);
+    	talonTwo.setPosition(0);
     	talonOne.changeControlMode(TalonControlMode.PercentVbus);
+    	talonTwo.changeControlMode(TalonControlMode.PercentVbus);
     }
     
     public void setPower(double pow){
@@ -36,12 +36,13 @@ public class DriveTrain extends Subsystem {
     	talonOne.set(pow);
     }
     
-    public double getRightEnc(){
+    public double getTalonOne(){
+    	return talonOne.getPosition();
+    }
+    
+    public double getTalonTwo(){
     	return talonTwo.getPosition();
     }
     
-    public double getLeftEnc(){
-    	return talonOne.getPosition();
-    }
 }
 
