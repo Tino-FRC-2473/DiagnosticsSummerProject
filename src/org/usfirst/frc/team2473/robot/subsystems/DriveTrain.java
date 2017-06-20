@@ -12,23 +12,24 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrain extends Subsystem {
 
-    CANTalon talonOne = new CANTalon(RobotMap.TALON_ONE);
-    CANTalon talonTwo = new CANTalon(RobotMap.TALON_TWO);
+    CANTalon talonOne;
+    CANTalon talonTwo;
 
     public DriveTrain(){
-    	
+    	talonOne = new CANTalon(RobotMap.TALON_ONE);
+    	talonTwo = new CANTalon(RobotMap.TALON_TWO);
     }
     
     public void initDefaultCommand() {
     }
     
     public void resetEncoders(){
-    	talonOne.changeControlMode(TalonControlMode.Position);
     	talonTwo.changeControlMode(TalonControlMode.Position);
-    	talonOne.setPosition(0);
+    	talonOne.changeControlMode(TalonControlMode.Position);
     	talonTwo.setPosition(0);
-    	talonOne.changeControlMode(TalonControlMode.PercentVbus);
+    	talonOne.setPosition(0);
     	talonTwo.changeControlMode(TalonControlMode.PercentVbus);
+    	talonOne.changeControlMode(TalonControlMode.PercentVbus);
     }
     
     public void setPower(double pow){
@@ -36,13 +37,12 @@ public class DriveTrain extends Subsystem {
     	talonOne.set(pow);
     }
     
-    public double getTalonOne(){
-    	return talonOne.getPosition();
-    }
-    
-    public double getTalonTwo(){
+    public double getRightEnc(){
     	return talonTwo.getPosition();
     }
     
+    public double getLeftEnc(){
+    	return talonOne.getPosition();
+    }
 }
 
