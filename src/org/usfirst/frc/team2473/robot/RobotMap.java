@@ -18,9 +18,9 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 
-	public static final int FRONT_LEFT = 0;
-	public static final int BACK_LEFT = 1;
-	public static final int FRONT_RIGHT = 2;
-	public static final int BACK_RIGHT = 3;
+	public static final int TALON_ONE = 0;
+	public static final int TALON_TWO = 1;
+	public static final int GYRO = 2;
+	public static final int BREAKBEAM = 3;
 	
 }

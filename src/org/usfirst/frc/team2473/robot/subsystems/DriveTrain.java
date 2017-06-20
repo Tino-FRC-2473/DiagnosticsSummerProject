@@ -12,10 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrain extends Subsystem {
 
-    CANTalon frontLeftTalon = new CANTalon(RobotMap.FRONT_LEFT);
-    CANTalon backLeftTalon = new CANTalon(RobotMap.BACK_LEFT);
-    CANTalon frontRightTalon = new CANTalon(RobotMap.FRONT_RIGHT);
-    CANTalon backRightTalon = new CANTalon(RobotMap.BACK_RIGHT);
+    CANTalon talonOne = new CANTalon(RobotMap.TALON_ONE);
+    CANTalon talonTwo = new CANTalon(RobotMap.TALON_TWO);
 
     public DriveTrain(){
     	
@@ -25,27 +23,25 @@ public class DriveTrain extends Subsystem {
     }
     
     public void resetEncoders(){
-    	frontRightTalon.changeControlMode(TalonControlMode.Position);
-    	frontLeftTalon.changeControlMode(TalonControlMode.Position);
-    	frontRightTalon.setPosition(0);
-    	frontLeftTalon.setPosition(0);
-    	frontRightTalon.changeControlMode(TalonControlMode.PercentVbus);
-    	frontLeftTalon.changeControlMode(TalonControlMode.PercentVbus);
+    	talonTwo.changeControlMode(TalonControlMode.Position);
+    	talonOne.changeControlMode(TalonControlMode.Position);
+    	talonTwo.setPosition(0);
+    	talonOne.setPosition(0);
+    	talonTwo.changeControlMode(TalonControlMode.PercentVbus);
+    	talonOne.changeControlMode(TalonControlMode.PercentVbus);
     }
     
     public void setPower(double pow){
-    	frontRightTalon.set(pow);
-    	frontLeftTalon.set(pow);
-    	backRightTalon.set(pow);
-    	backLeftTalon.set(pow);
+    	talonTwo.set(pow);
+    	talonOne.set(pow);
     }
     
     public double getRightEnc(){
-    	return frontRightTalon.getPosition();
+    	return talonTwo.getPosition();
     }
     
     public double getLeftEnc(){
-    	return frontLeftTalon.getPosition();
+    	return talonOne.getPosition();
     }
 }
 
