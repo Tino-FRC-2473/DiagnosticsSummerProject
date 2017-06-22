@@ -1,7 +1,9 @@
 
 package org.usfirst.frc.team2473.robot;
 
+import org.usfirst.frc.team2473.robot.subsystems.BreakBeamSystem;
 import org.usfirst.frc.team2473.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2473.robot.subsystems.GyroSystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,7 +22,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends ThreadingRobot {
 	
 	public static OI oi;
-	public static DriveTrain driveTrain;
+	public static DriveTrain train; //drivetrain subsystem
+	public static BreakBeamSystem beam; //breakbeam subsystem
+	public static GyroSystem gyroSystem; //gyro subsystem
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -32,6 +36,9 @@ public class Robot extends ThreadingRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+		train = new DriveTrain();
+		beam = new BreakBeamSystem();
+		gyroSystem = new GyroSystem();
 	}
 
 	/**

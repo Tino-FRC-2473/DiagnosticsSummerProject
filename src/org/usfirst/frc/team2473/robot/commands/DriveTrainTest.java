@@ -13,7 +13,7 @@ public class DriveTrainTest extends Command {
     public DriveTrainTest() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveTrain);
+    	requires(Robot.train);
     }
 
     // Called just before this Command runs the first time
@@ -23,13 +23,13 @@ public class DriveTrainTest extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.resetEncoders();
-    	Robot.driveTrain.setPower(0.5);
+    	Robot.train.resetEncoders();
+    	Robot.train.setPower(0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(Robot.driveTrain.getTalonOne()> ConstantMap.testToValueEnc || Robot.driveTrain.getTalonTwo() > ConstantMap.testToValueEnc){
+        if(Robot.train.getLeftEnc()> ConstantMap.testToValueEnc || Robot.train.getRightEnc() > ConstantMap.testToValueEnc){
         	return true;
         }
     	return false;
@@ -37,8 +37,8 @@ public class DriveTrainTest extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	if(Math.abs(Robot.driveTrain.getTalonOne()-Robot.driveTrain.getTalonTwo()) > ConstantMap.acceptableEncDifference){
-    		if(Robot.driveTrain.getTalonOne()>Robot.driveTrain.getTalonTwo()){
+    	if(Math.abs(Robot.train.getLeftEnc()-Robot.train.getRightEnc()) > ConstantMap.acceptableEncDifference){
+    		if(Robot.train.getLeftEnc()>Robot.train.getRightEnc()){
     			System.out.println("Talon One running faster than the acceptable difference");
     		}else{
     			System.out.println("Talon Two running faster than the acceptable difference");
